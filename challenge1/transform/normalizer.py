@@ -1,6 +1,6 @@
 import csv
 
-from splicer.errors import MalformedCSVRow, MalformedIndex1Value
+from transform.errors import MalformedCSVRow, MalformedIndex1Value
 
 
 def csv_reader(filename):

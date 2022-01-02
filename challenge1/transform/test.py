@@ -2,11 +2,11 @@ import unittest
 
 from parameterized import parameterized
 
-from splicer.errors import MalformedCSVRow, MalformedIndex1Value
-from splicer.normalizer import _should_translate, _split_index
+from transform.errors import MalformedCSVRow, MalformedIndex1Value
+from transform.normalizer import _should_translate, _split_index
 
 
-class SplicerTests(unittest.TestCase):
+class TransformationTests(unittest.TestCase):
     @parameterized.expand([
         [1, "a", "b"],
         [10, "a" * 10, "b" * 10],
