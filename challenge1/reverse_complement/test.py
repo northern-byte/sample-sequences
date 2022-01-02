@@ -3,6 +3,6 @@ import unittest
 from reverse_complement import translate
 
 
-class TranslatorTests(unittest.TestCase):
-    def test_a(self):
+class ReverseComplementTests(unittest.TestCase):
+    def test_translate_ok(self):
         self.assertEqual("GGCCAATT", translate("AATTGGCC"))
