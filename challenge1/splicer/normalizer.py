@@ -1,5 +1,4 @@
 import csv
-import string
 
 
 def csv_reader(filename):
