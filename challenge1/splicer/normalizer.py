@@ -1,5 +1,7 @@
 import csv
 
+from splicer.errors import MalformedCSVRow, MalformedIndex1Value
+
 
 def csv_reader(filename):
     with open(filename, "r") as csv_file:
@@ -17,12 +19,7 @@ class Normalizer:
 
     def transform(self, iterator):
         for row in iterator:
-            if len(row) < self.final_column_index - 1:
-                raise "malformedCSVRow"
-
-            indexes = row[self.initial_column_index].split(self.separator)
-            if len(indexes) != 2:
-                raise "malformedIndex1Value"
+            indexes = _split_index(row, self.initial_column_index, self.final_column_index, self.separator)
 
             index1 = indexes[0]
             index2 = indexes[1]
@@ -38,3 +35,14 @@ class Normalizer:
 
 def _should_translate(length_criteria, value1, value2):
     return len(value1) == length_criteria and len(value2) == length_criteria
+
+
+def _split_index(row, initial_column_index, final_column_index, separator):
+    if len(row) < final_column_index:
+        raise MalformedCSVRow()
+
+    indexes = row[initial_column_index].split(separator)
+    if len(indexes) != 2:
+        raise MalformedIndex1Value()
+
+    return indexes
