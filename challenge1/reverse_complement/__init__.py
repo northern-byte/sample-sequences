@@ -1,0 +1,1 @@
+from reverse_complement.translate import translate
