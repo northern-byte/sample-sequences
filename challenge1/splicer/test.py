@@ -33,6 +33,7 @@ class SplicerTests(unittest.TestCase):
     @parameterized.expand([
         [[1, "abc+defg", "", 2], 1, 5, "+", MalformedCSVRow],
         [[1, "abcdefg", "", 2], 1, 2, "+", MalformedIndex1Value],
+        [None, 1, 5, "+", TypeError],
 
     ])
     def test_split_index_err(self, row, index1, index2, sep, expected_ex):
