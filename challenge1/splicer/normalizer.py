@@ -27,10 +27,14 @@ class Normalizer:
             index1 = indexes[0]
             index2 = indexes[1]
 
-            if len(index1) == self.length_criteria and len(index2) == self.length_criteria:
+            if _should_translate(self.length_criteria, index1, index2):
                 index2 = self.translator(index2)
 
             row[self.initial_column_index] = index1
             row[self.final_column_index] = index2
 
             yield row
+
+
+def _should_translate(length_criteria, value1, value2):
+    return len(value1) == length_criteria and len(value2) == length_criteria
