@@ -11,8 +11,8 @@ def csv_reader(filename):
 
 class Normalizer:
     def __init__(self, initial_column, final_column, separator, length_criteria, translator):
-        self.initial_column_index = initial_column
-        self.final_column_index = final_column
+        self.initial_column_index = initial_column - 1
+        self.final_column_index = final_column - 1
         self.separator = separator
         self.length_criteria = length_criteria
         self.translator = translator
