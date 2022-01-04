@@ -17,8 +17,12 @@ class Normalizer:
         self.length_criteria = length_criteria
         self.translator = translator
 
-    def transform(self, iterator):
-        for row in iterator:
+    def transform(self, iterator, has_header):
+        for line, row in enumerate(iterator):
+            if line == 0 and has_header:
+                yield row
+                continue
+
             indexes = _split_index(row, self.initial_column_index, self.final_column_index, self.separator)
 
             index1 = indexes[0]
