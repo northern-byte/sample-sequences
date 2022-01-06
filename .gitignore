@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .idea
+challenge1/NewSampleSheet.csv
